@@ -1,0 +1,12 @@
+dbfilipe_high = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=gd4449196a02177_dbfilipe_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+dbfilipe_medium = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=gd4449196a02177_dbfilipe_medium.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+dbfilipe_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=gd4449196a02177_dbfilipe_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+dbfilipe_tp = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=gd4449196a02177_dbfilipe_tp.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+dbfilipe_tpurgent = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-saopaulo-1.oraclecloud.com))(connect_data=(service_name=gd4449196a02177_dbfilipe_tpurgent.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+

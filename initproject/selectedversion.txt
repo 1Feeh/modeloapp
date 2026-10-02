@@ -1,0 +1,31 @@
+conda create -n modeloapp
+conda env list
+conda activate modeloapp
+
+conda deactivate
+conda env remove -n nome_do_projeto_que_voce_escolher
+
+###
+
+conda install pip
+pip install python-decouple
+conda install Pillow
+pip install django-widget-tweaks
+pip install "django==5.2.8"
+pip install "oracledb==3.3.0"
+pip install "djangorestframework==3.14.0"
+pip install markdown  
+pip install django-filter
+
+###
+
+pip uninstall django
+pip uninstall oracledb
+pip uninstall djangorestframework
+
+###
+
+pip list
+conda list
+
+django-admin startproject modeloapp .
