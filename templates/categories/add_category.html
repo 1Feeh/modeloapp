@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Adicionar Categoria - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+  <br />
+  <b>Cadastro de Categoria</b>
+  <br />
+  <br />
+  <form action="" method="POST">
+    {% csrf_token %}
+    <label>Nome:</label>
+    <br />
+    {{ form.name }}
+    <br />
+    <br />
+    <label>Descricao:</label>
+    <br />
+    {{ form.description }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+  </form>
+{% endblock %}

@@ -3,3 +3,6 @@
 /apps/categories/migrations/*
 /apps/products/__pycache__/*
 /apps/products/migrations/*
+
+/apps/core/__pycache__/*
+/apps/core/migrations/*
