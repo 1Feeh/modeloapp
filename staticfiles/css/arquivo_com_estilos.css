@@ -1,0 +1,14 @@
+body {
+  background-color: rgb(190, 198, 202);
+}
+
+button {
+  background-color: #157caf;
+  color: rgb(255, 255, 255);
+  width: 100px;
+  height: 40px;
+}
+
+button:hover {
+  background-color: rgb(0, 0, 0);
+}

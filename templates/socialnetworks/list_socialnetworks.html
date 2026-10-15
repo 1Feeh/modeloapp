@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Redes Sociais - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'socialnetworks:add_socialnetwork' %}">Cadastro de nova rede social</a>
+<br />
+<br />
+<b>Lista de Redes Sociais</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Tipo de conteudo</th>
+            <th>Url</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for socialnetwork in socialnetworks %}
+            <tr>
+                <th>{{ socialnetwork.id }}</th>
+                <td>{{ socialnetwork.name }}</td>
+                <td>{{ socialnetwork.content_type }}</td>
+                <td>{{ socialnetwork.url }}</td>
+                <td>
+                    <a href="{% url 'socialnetworks:edit_socialnetwork' socialnetwork.id %}">Editar</a>
+                </td>
+                <td>
+                    <a href="{% url 'socialnetworks:delete_socialnetwork' socialnetwork.id %}">Excluir</a>
+                </td>
+            </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}

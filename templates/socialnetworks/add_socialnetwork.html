@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Adicionar Rede Social - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Rede Social</b>
+<br />
+<br />
+<form action="" method="POST">
+    {% csrf_token %}
+    <label>Nome</label>
+    <br />
+    {{ form.name }}
+    <br />
+    <br />
+    <label>Tipo de conteudo</label>
+    <br />
+    {{ form.content_type}}
+    <br />
+    <br />
+    <label>Url</label>
+    <br />
+    {{ form.url}}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>       
+</form>
+
+{% endblock body %}
