@@ -1,8 +1,22 @@
 /modeloapp/__pycache__/*
+
 /apps/categories/__pycache__/*
 /apps/categories/migrations/*
-/apps/products/__pycache__/*
-/apps/products/migrations/*
+
+/apps/clients/__pycache__/*
+/apps/clients/migrations/*
 
 /apps/core/__pycache__/*
 /apps/core/migrations/*
+
+/apps/employees/__pycache__/*
+/apps/employees/migrations/*
+
+/apps/person/__pycache__/*
+/apps/person/migrations/*
+
+/apps/products/__pycache__/*
+/apps/products/migrations/*
+
+/apps/socialnetworks/__pycache__/*
+/apps/socialnetworks/migrations/*

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Funcionarios - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'employees:add_employee' %}">Cadastro de novo funcionario</a>
+<br />
+<br />
+<b>Lista de Funcionarios</b></h5>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Endereco</th>
+        <th>Telefone</th>
+        <th>E-mail</th>
+        <th>Salario</th>
+        <th>Cargo</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for employee in employees %}
+        <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.first_name }}</td>
+            <td>{{ employee.last_name }}</td>
+            <td>{{ employee.address }}</td>
+            <td>{{ employee.phone }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>{{ employee.position }}</td>
+            <td>
+                <a href="{% url 'employees:edit_employee' employee.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'employees:delete_employee' employee.id %}">Excluir</a>
+            </td>
+        </tr> 
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock body %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Adicionar Funcionario - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Funcionario</b>
+<br />
+<br />
+<form action="" method="POST">
+{% csrf_token %}
+    <label>Nome</label>
+    <br />   
+    {{ form.first_name }}
+    <br />
+    <br />
+    <label>Sobrenome</label>
+    <br />    
+    {{ form.last_name }}
+    <br />
+    <br />
+    <label>Endereco</label>
+    <br />    
+    {{ form.address }}
+    <br />
+    <br />
+    <label>Telefone</label>
+    <br />    
+    {{ form.phone }}
+    <br />
+    <br />
+    <label>E-mail</label>
+    <br />   
+    {{ form.email}}
+    <br />
+    <br />
+    <label>Salario</label>
+    <br />    
+    {{ form.salary }}
+    <br />
+    <br />
+    <label>Cargo</label>
+    <br />   
+    {{ form.position}}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>       
+</form>
+
+{% endblock body %}

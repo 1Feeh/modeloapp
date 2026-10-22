@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Clientes - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'clients:add_client' %}">Cadastro de novo cliente</a>
+<br />
+<br />
+<b>Lista de Clientes</b></h5>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Endereco</th>
+        <th>Telefone</th>
+        <th>E-mail</th>
+        <th>Genero</th>
+        <th>Redes sociais</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for client in clients %}
+        <tr>
+            <td>{{ client.id }}</td>
+            <td>{{ client.first_name }}</td>
+            <td>{{ client.last_name }}</td>
+            <td>{{ client.address }}</td>
+            <td>{{ client.phone }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.gender }}</td>
+            <td>
+                <ul>
+                {% for socialnetwork in client.socialnetwork.all %}
+                    <li>{{ socialnetwork.name }}</li>
+                {% empty %}
+                    <li>Sem redes</li>
+                {% endfor %}
+                </ul>
+            </td>
+            <td>
+                <a href="{% url 'clients:edit_client' client.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'clients:delete_client' client.id %}">Excluir</a>
+            </td>
+        </tr> 
+    {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock body %}
