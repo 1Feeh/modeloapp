@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Produtos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'products:add_product' %}">Cadastro de novo produto</a>
+<br />
+<br />
+<b>Lista de Produtos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Data de fabricacao</th>
+            <th>Ativo</th>
+            <th>Preço</th>
+            <th>Foto</th>
+            <th>Documento</th>
+            <th>Categoria</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</th>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.fabrication_date }}</td>
+                <td>
+                {% if product.is_active == True %}
+                    Ativo
+                {% endif %}
+                {% if product.is_active == False %}
+                    Inativo
+                {% endif %}
+                </td>
+                <td>{{ product.price }}</td>
+                <td>
+                <img src="{{ product.photo.url }}" width="80">
+                </td>
+                <td>
+                    <a href="{{ product.doc.url }}" >{{ product.doc.url }}</a>
+                </td>
+                <td>{{ product.category }}</td>
+                <td>
+                    <a href="{% url 'products:edit_product' product.id %}" >Editar</a>
+                </td>
+                <td>    
+                    <a href="{% url 'products:delete_product' product.id %}" >Excluir</a>
+                </td>
+            </tr> 
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
