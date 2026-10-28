@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br />
+<a href="{% url 'orders:list_items_products' %}">Continuar comprando</a>
+<br />
+<br />
+<b>Carrinho</b>
+<br />
+<br />
+{% if cart %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID Produto</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Subtotal</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product_id, item in cart.items %}
+        <tr>
+            <td>{{ product_id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>
+                <form method="post" action="{% url 'orders:edit_cart' product_id %}">
+                    {% csrf_token %}
+                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                    <button type="submit">Atualizar</button>
+                </form>
+            </td>
+            <td>{{ item.subtotal }}</td>
+            <td>
+                <a href="{% url 'orders:delete_cart' product_id %}">Remover</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h3>Total: {{ total }}</h3>
+<a href="{% url 'orders:checkout' %}">Finalizar Pedido</a>
+{% else %}
+<p>Carrinho vazio.</p>
+{% endif %}
+{% endblock %}

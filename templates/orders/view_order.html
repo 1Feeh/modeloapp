@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br />
+<b>Detalhes do Pedido</b>
+<br />
+<br />
+<b>ID:</b> {{ order.id }}
+<br />
+<b>Cliente:</b>
+    {% if order.client %}
+        {{ order.client.first_name }} {{ order.client.last_name }}
+    {% endif %}
+<br />
+<b>Funcionário:</b>
+    {% if order.employee %}
+        {{ order.employee.first_name }} {{ order.employee.last_name }}
+    {% endif %}
+<br />
+<b>Status:</b> {{ order.get_status_display }}
+<br />
+<b>Forma de pagamento:</b> {{ order.get_payment_method_display }}
+<br />
+<b>Total:</b> {{ order.total }}
+<br />
+<br />
+<b>Itens do Pedido</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Preço Unitário</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>
+                {% if item.product %}
+                    {{ item.product.name }}
+                {% endif %}
+            </td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.unit_price }}</td>
+            <td>{{ item.subtotal }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhum item encontrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br />
+<a href="{% url 'orders:list_orders' %}">Voltar</a>
+{% endblock %}

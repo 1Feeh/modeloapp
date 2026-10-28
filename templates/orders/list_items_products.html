@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br />
+<a href="{% url 'orders:cart' %}">Ver Carrinho</a>
+<br />
+<br />
+<b>Lista de Produtos</b>
+<br />
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Foto</th>
+            <th>Documento</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category }}</td>
+            <td>
+                {% if product.photo %}
+                     <a href="{{ product.photo.url }}" target="_blank" rel="noopener noreferrer"><img src="{{ product.photo.url }}" width="80"></a>
+                {% else %}
+                    Sem foto
+                {% endif %}
+            </td>
+            <td>
+                {% if product.doc %}
+                    <a href="{{ product.doc.url }}" target="_blank" rel="noopener noreferrer">Baixar</a>
+                {% else %}
+                    Sem documento
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'orders:add_cart' product.id %}">Adicionar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8">Nenhum produto encontrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

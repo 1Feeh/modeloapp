@@ -16,9 +16,10 @@
     <br />
     <br />
     <a href="{% url 'categories:list_categories' %}"><button onclick="mudarCor()">Categorias</button></a>
-    <a href="#"><button onclick="alertarMensagem()">Produtos</button></a>
+    <a href="{% url 'products:list_products' %}"><button>Produtos</button></a>
     <a href="{% url 'clients:list_clients' %}"><button>Clientes</button></a>
-    <a href="#"><button onclick="alertarMensagem()">Pedidos</button></a>
+    <a href="{% url 'orders:list_orders' %}"><button>Pedidos</button></a>
+    <a href="{% url 'orders:list_items_products' %}"><button>Compras</button></a>
     <a href="{% url 'employees:list_employees' %}"><button>Funcionarios</button></a>
     <a href="{% url 'socialnetworks:list_socialnetworks' %}"><button onclick="mudarCor()">Rede Social</button></a>
     <br />

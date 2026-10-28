@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<br />
+<b>Lista de Pedidos</b>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Funcionário</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Data</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>
+                {% if order.client %}
+                    {{ order.client.first_name }} {{ order.client.last_name }}
+                {% endif %}
+            </td>
+            <td>
+                {% if order.employee %}
+                    {{ order.employee.first_name }} {{ order.employee.last_name }}
+                {% endif %}
+            </td>
+            <td>{{ order.get_status_display }}</td>
+            <td>{{ order.total }}</td>
+            <td>{{ order.created_at }}</td>
+            <td>
+                <a href="{% url 'orders:view_order' order.id %}">Ver</a>
+                |
+                <a href="{% url 'orders:cancel_order' order.id %}">Cancelar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">Nenhum pedido encontrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
