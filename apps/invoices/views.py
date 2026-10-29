@@ -4,7 +4,7 @@ from invoices.models import Invoice
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required(login_url='/contas/login/')
+#@login_required(login_url='/contas/login/')
 def create_invoice_for_order(order):
     if hasattr(order, 'invoice'):
         return order.invoice

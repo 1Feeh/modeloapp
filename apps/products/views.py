@@ -5,7 +5,7 @@ from .models import Product
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required(login_url='/contas/login/')
+#@login_required(login_url='/contas/login/')
 def add_product(request):
     template_name = 'products/add_product.html'
     context = {}

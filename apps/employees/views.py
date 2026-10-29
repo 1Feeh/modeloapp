@@ -5,7 +5,7 @@ from .models import Employee
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required(login_url='/contas/login/')
+#@login_required(login_url='/contas/login/')
 def add_employee(request):
     template_name = 'employees/add_employee.html'
     context = {}

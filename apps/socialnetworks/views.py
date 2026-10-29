@@ -5,7 +5,7 @@ from .models import Socialnetwork
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required(login_url='/contas/login/')
+#@login_required(login_url='/contas/login/')
 def add_socialnetwork(request):
     template_name = 'socialnetworks/add_socialnetwork.html'
     context = {}
