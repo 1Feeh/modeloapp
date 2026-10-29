@@ -8,14 +8,24 @@
 <b>ID:</b> {{ order.id }}
 <br />
 <b>Cliente:</b>
-    {% if order.client %}
-        {{ order.client.first_name }} {{ order.client.last_name }}
-    {% endif %}
+{% if order.client %}
+{{ order.client.first_name }} {{ order.client.last_name }}
+{% endif %}
 <br />
 <b>Funcionário:</b>
-    {% if order.employee %}
-        {{ order.employee.first_name }} {{ order.employee.last_name }}
-    {% endif %}
+{% if order.employee %}
+{{ order.employee.first_name }} {{ order.employee.last_name }}
+{% endif %}
+<br />
+<b>Nota Fiscal:</b>
+{% if order.invoice %}
+<a href="{% url 'invoices:view_invoice' order.invoice.id %}" target="_blank" rel="noopener noreferrer">
+    {{ order.invoice.number }}
+</a>
+- {{ order.invoice.issue_date }}
+{% else %}
+Não gerada
+{% endif %}
 <br />
 <b>Status:</b> {{ order.get_status_display }}
 <br />
@@ -39,7 +49,7 @@
         <tr>
             <td>
                 {% if item.product %}
-                    {{ item.product.name }}
+                {{ item.product.name }}
                 {% endif %}
             </td>
             <td>{{ item.quantity }}</td>

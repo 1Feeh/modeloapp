@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Novo usuario - {{ block.super}}
+{% endblock title %}
+
+{% block body %}
+
+<b>Novo usuario</b>
+<form action="" method="POST">
+{% csrf_token %}
+    <label>Nome</label>
+    <br />
+    {{ form.first_name }}
+    <br />
+    <br />
+    <label>Sobrenome</label>
+    <br />
+    {{ form.last_name }}
+    <br />
+    <br />              
+    <label>Nome de usuario</label>
+    <br /> 
+    <br /> 
+    {{ form.username }}
+    <br /> 
+    <label>E-mail</label>
+    <br /> 
+    <br /> 
+    {{ form.email }}
+    <br /> 
+    <br /> 
+    <label>Senha</label>
+    <br /> 
+    {{ form.password }}
+    <br /> 
+    <br />            
+    <button type="submit" >Salvar</button>
+</form>
+
+{% endblock body %}

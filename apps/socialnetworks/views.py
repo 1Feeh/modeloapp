@@ -2,8 +2,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import SocialnetworkForm
 from .models import Socialnetwork
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url='/contas/login/')
 def add_socialnetwork(request):
     template_name = 'socialnetworks/add_socialnetwork.html'
     context = {}

@@ -5,8 +5,11 @@ from orderitems.models import Orderitem
 from products.models import Product
 from clients.models import Client
 from employees.models import Employee
+from invoices.views import create_invoice_for_order
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+#@login_required(login_url='/contas/login/')
 def list_orders(request):
     template_name = 'orders/list_orders.html'
     orders = Order.objects.select_related('client', 'employee').all()
@@ -123,6 +126,9 @@ def checkout(request):
             total_order += subtotal
         order.total = total_order
         order.save()
+        # Adicione essa linha no metodo.
+        create_invoice_for_order(order)
+        # Adicione essa linha no metodo.
         request.session['cart'] = {}
         request.session.modified = True
         return redirect('orders:view_order', order_id=order.id)

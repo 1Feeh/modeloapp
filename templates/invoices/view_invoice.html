@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
+    <title>Nota Fiscal - {{ invoice.number }}</title>
+</head>
+<body>
+<div class="invoice_container">
+    <h2 class="invoice_h2">NOTA FISCAL</h2>
+    <div class="invoice_box">
+        <b>Número:</b> {{ invoice.number }}<br>
+        <b>Data:</b> {{ invoice.issue_date }}
+    </div>
+    <div class="invoice_box">
+        <b>Cliente:</b>
+        {{ order.client.first_name }} {{ order.client.last_name }}<br>
+        <b>Funcionário:</b>
+        {{ order.employee.first_name }} {{ order.employee.last_name }}
+    </div>
+    <div class="invoice_box">
+        <h3>Itens</h3>
+        <table class="invoice_table ">
+            <thead>
+                <tr>
+                    <th class="invoice_th">Produto</th>
+                    <th class="invoice_th">Qtd</th>
+                    <th class="invoice_th">Preço</th>
+                    <th class="invoice_th">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td class="invoice_td">{{ item.product.name }}</td>
+                    <td class="invoice_td">{{ item.quantity }}</td>
+                    <td class="invoice_td">{{ item.unit_price }}</td>
+                    <td class="invoice_td">{{ item.subtotal }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="invoice_box">
+        <b>Total:</b> {{ order.total }}
+    </div>
+</div>
+</body>
+</html> 

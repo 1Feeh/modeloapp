@@ -1,4 +1,4 @@
-body {
+.core_body {
   background-color: rgb(190, 198, 202);
 }
 
@@ -11,4 +11,32 @@ button {
 
 button:hover {
   background-color: rgb(0, 0, 0);
+}
+
+.invoice_container { 
+  width: 700px; 
+  margin: auto; 
+}
+
+.invoice_box { 
+  border: 1px solid #000; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+}
+
+.invoice_h2 { 
+  text-align: center; 
+} 
+
+.invoice_table { 
+  width: 100%; border-collapse: collapse; 
+}
+
+.invoice_table, .invoice_th, .invoice_td { 
+  border: 1px solid black; 
+}
+
+.invoice_th, .invoice_td { 
+  padding: 5px; 
+  text-align: center; 
 }

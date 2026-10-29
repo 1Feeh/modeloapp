@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ReviewApp login</title>
+  <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
+</head>
+<body>
+    <form action="" method="POST">
+    {% csrf_token %}
+    <b>Identifique-se</b>
+    <br />
+    <br />
+    <label>Usuario</label>
+    <input type="text" id="username" name="username" placeholder="Nome de usuario" required autofocus>
+    <br />
+    <label>Senha</label>
+    <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+    <br />
+    <br />
+    <button type="submit">Entrar</button>
+    <br />
+    <br />
+    <a href="{% url 'accounts:add_user' %}">Criar uma conta</a>
+  </form>
+  <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
+</body>
+</html>
